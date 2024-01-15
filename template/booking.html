@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+Booking
+{%  endblock %}
+
+{% block content %}
+<style>
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+.container{
+  width: 50%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px #b62a5e;
+}
+
+</style>
+<div class="container p-3 text-center">
+    <h1>Book Your Events</h1><br>
+<form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="btn text-center">Book Now</button>
+</form>
+</div>
+{% endblock %}
+

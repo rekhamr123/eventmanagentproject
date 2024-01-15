@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+
+{%  endblock %}
+
+{% block content %}
+
+<h1 class="text-center">Events</h1>
+<style>
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+.container{
+  width: 70%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px #b62a5e;
+}
+
+</style>
+<div class="container">
+    {% if event is not none %}
+    <div class="card text-center mx-2 my-2 col-md-3">
+        <img class="card-img-top" src="{{event.img.url}}" alt=".."  width="200px" height="200px">
+        <img class="card-img-top" src="{{event.img_second.url}}" alt=".."  width="200px" height="200px">
+
+        <div class="card-body">
+          <h4 class="card-title">{{event.name}}</h4>
+          <p class="card-text">{{event.desc}}.</p>
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Events
+{%  endblock %}
+
+{% block content %}
+<style>
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+.container{
+  width: 85%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px #b62a5e;
+}
+</style>
+<h2 class="text-center">Events </h2>
+<h4 style="text-align:right;"><a href="{% url 'register' %}">For booking</a></h4>
+<div class="container">
+    {% for i in eve %}
+    <div class="card text-center mx-2 my-2 col-md-3">
+        <a href="{% url 'event_detail' i.id %}"><img class="card-img-top" src="{{i.img.url}}" alt=".."  width="200px" height="200px"></a>
+        <div class="card-body">
+          <h4 class="card-title"><a href="{% url 'event_detail' i.id %}"></a></h4>
+          <p class="card-text">{{i.name}}.</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
